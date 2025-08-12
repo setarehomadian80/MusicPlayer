@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicPlayer</title>
+    <link rel="stylesheet" href="style/output.css">
+</head>
+
+<body>
+    <section>
+        <div class="2xl:container mx-auto">
+            <div class="bg-neutral-600 w-full border-2 flex flex-wrap relative">
+                <!-- 2 main box -->
+                <!-- left nav -->
+                <div class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed left-0 top-0">
+                    <!--  Add nav li -->
+                    <ul
+                        class="h-full w-60 *:h-15 py-10 px-5 *:mb-2 *:rounded-xl **:py-4 *:px-4 *:hover:bg-[var(--hover-button)] mt-20">
+                        <li>
+                            <span>🎵</span>
+                            <span>All Music</span>
+                        </li>
+                        <li>
+                            <span>❤️</span>
+                            <span>Favorites</span>
+                        </li>
+                        <li>
+                            <span>🔥</span>
+                            <span>Most Played</span>
+                        </li>
+                        <li>
+                            <span>US</span>
+                            <span>English</span>
+                        </li>
+                        <li>
+                            <span>ES</span>
+                            <span>Spanish</span>
+                        </li>
+                        <li>
+                            <span>KR</span>
+                            <span>K-Pop</span>
+                        </li>
+                        <li>
+                            <span>🎸</span>
+                            <span>Indie</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- left nav -->
+                <!-- right section -->
+                <div class="bg-[var(--main-color-section)] w-[85%] absolute right-0 top-0">
+                    <!-- search box -->
+                    <div class="h-28 px-10 flex flex-wrap justify-between items-center">
+                        <!-- search input-->
+                        <input placeholder="search for music..." type="search"
+                            class="w-72 h-12 bg-[var(--main-color-nav)] rounded-4xl px-5 text-white cursor-pointer">
+                        <!-- right box -->
+                        <div class="w-40 h-full flex flex-wrap justify-between items-center">
+                            <strong class="text-white">Hey, Listener!</strong>
+                            <span><a href="" class=" p-3 rounded-4xl bg-[var(--color-icon)]">🤵</a></span>
+                        </div>
+                        <!-- right box -->
+                    </div>
+                    <!-- search box-->
+
+                    <!-- card container -->
+                    <div>
+                        <!-- title -->
+                        <div class="py-5 flex flex-wrap justify-between px-10">
+                            <h1 class="font-bold text-white text-2xl">All Music</h1>
+                            <div>
+                                <button class="btn">Grid</button>
+                                <button class="btn">List</button>
+                            </div>
+                        </div>
+                        <!-- title -->
+                        <!-- music card container -->
+                        <div class=" p-10 flex flex-wrap justify-between *:mb-8">
+                            <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Michael Jackson — Billie Jean.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Billie Jean</h3>
+                                    <span>Michael Jackson</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Queen — Bohemian Rhapsody.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Bohemian Rhapsody</h3>
+                                    <span>Queen </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/The Weeknd — Blinding Lights.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Blinding Lights</h3>
+                                    <span>The Weeknd</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Adele — Rolling in the Deep.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Rolling in the Deep</h3>
+                                    <span>Adele </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Ed Sheeran — Shape of You.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Shape of You</h3>
+                                    <span>Ed Sheeran </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Dua Lipa — Levitating.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Levitating</h3>
+                                    <span>Dua Lipa</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Taylor Swift — Anti-Hero.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Anti-Hero</h3>
+                                    <span>Taylor Swift</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Billie Eilish — bad guy.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>bad guy</h3>
+                                    <span>Billie Eilish</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Coldplay — Viva La Vida.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Viva La Vida</h3>
+                                    <span>Coldplay</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Imagine Dragons — Believer.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Believer</h3>
+                                    <span>Imagine Dragons</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+
+                                 <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Drake — One Dance.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> One Dance</h3>
+                                    <span>Drake</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Rihanna — Diamonds.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Diamonds</h3>
+                                    <span>Rihanna </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Mark Ronson feat. Bruno Mars — Uptown Funk.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Uptown Funk</h3>
+                                    <span>Mark Ronson feat. Bruno Mars</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Lady Gaga — Poker Face.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Poker Face</h3>
+                                    <span>Lady Gaga</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/BTS — Dynamite.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Dynamite</h3>
+                                    <span>BTS </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Justin Bieber — Sorry.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Sorry</h3>
+                                    <span>Justin Bieber</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Post Malone — Circles.jpg" alt="">
+                                <div class="title-img">
+                                    <h3>Circles</h3>
+                                    <span>Post Malone </span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Ariana Grande — 7 rings.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> 7 rings</h3>
+                                    <span>Ariana Grande</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/Harry Styles — As It Was.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> As It Was</h3>
+                                    <span>Harry Styles</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                                  <!-- card-box -->
+                            <div class="card-box">
+                                <img src="image/eminem — lose yourself.jpg" alt="">
+                                <div class="title-img">
+                                    <h3> Lose Yourself</h3>
+                                    <span>Eminem</span>
+                                </div>
+                            </div>
+                            <!-- card-box -->
+                        </div>
+                        <!-- music card container -->
+                    </div>
+                    <!-- card container -->
+                </div>
+                <!-- right section -->
+                <!-- 2 main box -->
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/main.js"></script>
+
+</html>
