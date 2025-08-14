@@ -17,8 +17,8 @@
             <div class="bg-neutral-600 w-full  flex flex-wrap relative">
                 <!-- 2 main box -->
                 <!-- left nav -->
-                <div class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed left-0 top-0">
-                    <!--  Add nav li -->
+                <div id="navBar" class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed left-0 top-0">
+                    <!--  Add nav ul li -->
                     <ul
                         class="h-full w-60 *:h-15 py-10 px-5 *:mb-2 *:rounded-xl **:py-4 *:px-4 *:hover:bg-[var(--hover-button)] mt-10">
                         <li>
@@ -49,11 +49,11 @@
                             <span>🎸</span>
                             <span>Indie</span>
                         </li>
-                        <div class="flex w-full h-6 items-center justify-between text-white mt-16 ">
+                        <li id="ThemeBtn" class="flex w-full h-6 items-center justify-between text-white mt-16 ">
                             <span>Theme</span>
-                            <span>☀️</span>
-                            <span class="hidden">🌙</span>
-                        </div>
+                            <span class="sun">☀️</span>
+                            <span class="moon hiddenSpan">🌙</span>
+                        </li>
                     </ul>
 
                 </div>
