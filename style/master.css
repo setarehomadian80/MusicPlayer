@@ -32,7 +32,9 @@
         height: 290px;
         background-color: aliceblue;
         border-radius: 15px;
-
+        transition: 0.4s;
+        box-shadow: 0 10px 24px -14px rgba(0,0,0,.35);
+        cursor: pointer;
 
         >img {
             width: 100%;
@@ -53,10 +55,48 @@
         }
     }
 
-
-    /* #navBar ul li.hoverLi:hover span { color: white; } */
+    .card-box:hover{
+         transform: translateY(-3px);
+    }
 
     .hiddenSpan {
         display: none;
     }
+
+    /* سایه ملایم فقط سمت راست */
+    .navShadow {
+        box-shadow: 12px 0 24px -12px rgba(0, 0, 0, .45);
+    }
+
+    .searchShadow {
+        box-shadow: 2px 2px 100px 2px rgba(0, 0, 0, .45);
+        border: none !important;
+
+    }
+
+    .searchShadow {
+        box-shadow: 2px 2px 100px 2px rgba(0, 0, 0, .45);
+        border: none;
+    }
+
+    .searchShadow:focus {
+        outline: 2px solid var(--color-icon);
+        outline-offset: 2px;
+    }
+
+    .ph-black::placeholder {
+        color: #000;
+        opacity: 1;
+    }
+
+    .ph-white::placeholder {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .CardShadow{
+      box-shadow: 2px 2px 100px 2px rgba(0, 0, 0, .45);
+
+    }
+
 }
