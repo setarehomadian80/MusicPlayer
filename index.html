@@ -14,10 +14,11 @@
 <body>
     <section>
         <div class="2xl:container mx-auto">
-            <div class="bg-neutral-600 w-full  flex flex-wrap relative">
+            <div class="bg-neutral-600 w-full flex flex-wrap relative">
                 <!-- 2 main box -->
                 <!-- left nav -->
-                <div id="navBar" class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed left-0 top-0">
+                <div id="navBar"
+                    class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed left-0 top-0">
                     <!--  Add nav ul li -->
                     <ul
                         class="h-full w-60 *:h-15 py-10 px-5 *:mb-2 *:rounded-xl **:py-4 *:px-4 *:hover:bg-[var(--hover-button)] mt-10">
@@ -59,16 +60,17 @@
                 </div>
                 <!-- left nav -->
                 <!-- right section -->
-                <div id="mainSec" class="bg-[var(--main-color-section)] w-[85%] absolute right-0 top-0">
+                <div id="mainSec" class="bg-[var(--main-color-section)] w-[84%] absolute right-0 top-0 z-[99999]">
                     <!-- search box -->
                     <div class="h-28 px-10 flex flex-wrap justify-between items-center">
                         <!-- search input-->
                         <input id="searchBox" placeholder="search for music..." type="search"
                             class="w-72 h-12 bg-[var(--main-color-nav)] rounded-4xl px-5 text-white cursor-pointer">
                         <!-- right box -->
-                        <div  class="w-40 h-full flex flex-wrap justify-between items-center">
+                        <div class="w-40 h-full flex flex-wrap justify-between items-center">
                             <strong id="listener" class="text-white">Hey, Listener!</strong>
-                            <span id="listenerIcon"><a href="" class="p-3 rounded-4xl bg-[var(--color-icon)]">🤵</a></span>
+                            <span id="listenerIcon"><a href=""
+                                    class="p-3 rounded-4xl bg-[var(--color-icon)]">🤵</a></span>
                         </div>
                         <!-- right box -->
                     </div>
@@ -86,7 +88,7 @@
                         </div>
                         <!-- title -->
                         <!-- music card container -->
-                        <div class="p-10 flex flex-wrap justify-between *:mb-8">
+                        <div id="cardCon" class="p-10 flex flex-wrap justify-between *:mb-8 ">
                             <!-- card-box 1-->
                             <div class="card-box" data-src="https://musicdel.ir/single-tracks/494702/#onp"
                                 data-title="Billie Jean" data-artist="Michael Jackson"
@@ -319,13 +321,17 @@
                             <!-- card-box -->
                         </div>
                         <!-- music card container -->
-                        <!-- player -->
-                        <div class="w-full h-20 border-2 border-white fixed bottom-0
-                          bg-black/40 backdrop-blur-md text-white flex flex-wrap">
-                            <div><img src="" alt="">
+                    </div>
+                    <!-- card container -->
+                    <!-- player -->
+                    <div class="bg-blue-900 relative z-[99999] h-20">
+                        <div id="player"
+                            class=" border-2 border-white left-0 top-0
+                          bg-black/40 backdrop-blur-md text-white flex flex-wrap justify-between items-center my-2">
+                            <div><img id="player-cover" src="" alt="">
                                 <div>
                                     <span id="music-name">gvb</span>
-                                    <span id="artist-name"></span>
+                                    <span id="artist-name">hft</span>
                                 </div>
                             </div>
                             <div class="*:border-2 *:p-6">
@@ -338,9 +344,8 @@
                                 <input type="range">
                             </div>
                         </div>
-                        <!-- player -->
                     </div>
-                    <!-- card container -->
+                    <!-- player -->
                 </div>
                 <!-- right section -->
                 <!-- 2 main box -->

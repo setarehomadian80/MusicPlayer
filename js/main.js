@@ -79,3 +79,61 @@ ThemeBtn.addEventListener("click", () => {
 });
 
 // change theme *
+// get data- 
+
+document.addEventListener('DOMContentLoaded' , ()=>{  
+
+  const nameEl = document.getElementById('music-name')
+  const artistEl = document.getElementById('artist-name')
+  const coverEl = document.getElementById('player-cover')
+
+  // پلیر صوتی 
+  const audio = new Audio();
+  // برای داشتن مدت رمان آهنگ 
+  audio.preload = 'metadata'
+  // پلیر صوتی 
+
+
+  let currentCard = null
+
+ document.addEventListener('click' , (e)=>{
+  const card = e.target.closest('.card-box[data-src]')
+  if(!card) return
+
+
+
+  const {src, title, artist, cover} = card.dataset
+  if (!src) return
+
+
+  if(currentCard === card && !audio.paused){
+    audio.pause();
+    card.classList.remove('is-playing')
+    return;
+  }
+
+  // کارت فعال را هایلاین کن
+  currentCard?.classList.remove('is-playing')
+  card.classList.add('is-playing')
+  currentCard = card 
+
+// add data to player
+  nameEl.textContent = title
+  artistEl.textContent = artist
+  if( cover && coverEl) coverEl.src = cover
+  // add data to player
+
+
+  audio.src = src
+  audio.play().catch(console.warn)
+ });
+
+
+
+
+ audio.addEventListener('ended' ,()=>{
+  currentCard?.classList.remove('is-playing')
+  currentCard = null
+ })
+})
+// get data- 
