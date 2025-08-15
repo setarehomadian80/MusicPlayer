@@ -91,6 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const icoPlay = document.getElementById("ico-play"); // اگر idهای قدیمی‌ت رو نگه داشتی، از querySelector('#-play') استفاده کن
   const icoPause = document.getElementById("ico-pause");
   const cards = Array.from(document.querySelectorAll(".card-box[data-src]"));
+  const cardCon = document.getElementById("cardCon");
+  //////////
+  const navAll = document.getElementById("navAll"); // <li id="navAll">All Music</li>
+  const navFav = document.getElementById("navFav");
+  /////////////
+  const allCards = Array.from(document.querySelectorAll('.card-box'));
 
   function showPlayIcon() {
     icoPlay?.classList.remove("hidden");
@@ -143,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   audio.addEventListener("ended", () => {
-    // btnNext?.click(); 
+    // btnNext?.click();
     currentCard?.classList.remove("is-playing");
     currentCard = null;
   });
@@ -206,45 +212,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // دکمه قبل و بعد
 
-/////////////////////////////////
-  btnPrev?.addEventListener('click', () => {
-  if (!cards.length) return;
+  /////////////////////////////////
+  btnPrev?.addEventListener("click", () => {
+    if (!cards.length) return;
 
-  // اگر هنوز چیزی انتخاب نشده، از آخر شروع کن
-  if (!currentCard) {
-    const card = cards[cards.length - 1];
+    // اگر هنوز چیزی انتخاب نشده، از آخر شروع کن
+    if (!currentCard) {
+      const card = cards[cards.length - 1];
 
-    card.classList.add('is-playing');
-    currentCard = card;
-    const { title, artist, cover, src } = card.dataset;
-    nameEl.textContent = title || '—';
-    artistEl.textContent = artist || '—';
+      card.classList.add("is-playing");
+      currentCard = card;
+      const { title, artist, cover, src } = card.dataset;
+      nameEl.textContent = title || "—";
+      artistEl.textContent = artist || "—";
+      if (cover && coverEl) coverEl.src = cover;
+
+      audio.src = src;
+      audio.play().catch(console.warn);
+      showPauseIcon();
+      return;
+    }
+
+    // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
+    const i = cards.indexOf(currentCard);
+    const prevIndex = (i - 1 + cards.length) % cards.length;
+    const prevCard = cards[prevIndex];
+
+    currentCard.classList.remove("is-playing");
+    prevCard.classList.add("is-playing");
+    currentCard = prevCard;
+
+    const { title, artist, cover, src } = prevCard.dataset;
+    nameEl.textContent = title || "—";
+    artistEl.textContent = artist || "—";
     if (cover && coverEl) coverEl.src = cover;
 
     audio.src = src;
     audio.play().catch(console.warn);
     showPauseIcon();
-    return;
-  }
+  });
 
-  // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
-  const i = cards.indexOf(currentCard);
-  const prevIndex = (i - 1 + cards.length) % cards.length;
-  const prevCard = cards[prevIndex];
 
-  currentCard.classList.remove('is-playing');
-  prevCard.classList.add('is-playing');
-  currentCard = prevCard;
 
-  const { title, artist, cover, src } = prevCard.dataset;
-  nameEl.textContent = title || '—';
-  artistEl.textContent = artist || '—';
-  if (cover && coverEl) coverEl.src = cover;
+  // nav
+  allCards.forEach((c , i ) =>{
+    if (!c.dataset.fav) c.dataset.fav = '0'// 0 = غیرعلاقه‌مندی، 1 = علاقه‌مندی
+    if (!c.dataset.id) c.dataset.id = String(i)
 
-  audio.src = src;
-  audio.play().catch(console.warn);
-  showPauseIcon();
-});
-
+  })
 });
 // get data-

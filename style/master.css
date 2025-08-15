@@ -104,4 +104,14 @@
         outline-offset: 2px;
     }
 
+    @keyframes rotateCover {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .spin {
+        animation: rotateCover 8s linear infinite;
+    }
+
 }
