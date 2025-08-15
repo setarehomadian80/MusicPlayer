@@ -1,16 +1,17 @@
 # Music Player
 
 A simple interactive **Music Player** built using HTML, CSS, and JavaScript.
-////////////////////////////////////////
-## Limitations
 
+
+
+## Limitations
 - **Not responsive**: Optimized only for **Asus gaming laptop screens**.
 - Works best on modern browsers (Chrome, Firefox, Edge).
 
 //////////////////////////////////////
 ## Demo
 
-![Music Player Screenshot]()
+![Music Player Screenshot](image/Sc.png)
 
 Live demo: [Music Player Demo](https://yourusername.github.io/your-repo-name/)
 
