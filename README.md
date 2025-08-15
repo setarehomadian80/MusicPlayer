@@ -11,7 +11,9 @@ A simple interactive **Music Player** built using HTML, CSS, and JavaScript.
 //////////////////////////////////////
 ## Demo
 
-![Music Player Screenshot](image/Sc.png)
+![Music Player Screenshot](image/Sc1.png)
+![Music Player Screenshot](image/Sc2.png)
+
 
 Live demo: [Music Player Demo](https://setarehomadian80.github.io/MusicPlayer/)
 
