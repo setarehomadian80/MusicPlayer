@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navAll = document.getElementById("navAll"); // <li id="navAll">All Music</li>
   const navFav = document.getElementById("navFav");
   /////////////
-  const allCards = Array.from(document.querySelectorAll('.card-box'));
+  const allCards = Array.from(document.querySelectorAll(".card-box"));
 
   function showPlayIcon() {
     icoPlay?.classList.remove("hidden");
@@ -252,13 +252,103 @@ document.addEventListener("DOMContentLoaded", () => {
     showPauseIcon();
   });
 
-
-
   // nav
-  allCards.forEach((c , i ) =>{
-    if (!c.dataset.fav) c.dataset.fav = '0'// 0 = غیرعلاقه‌مندی، 1 = علاقه‌مندی
-    if (!c.dataset.id) c.dataset.id = String(i)
+  allCards.forEach((c, i) => {
+    if (!c.dataset.fav) c.dataset.fav = "0"; // 0 = غیرعلاقه‌مندی، 1 = علاقه‌مندی
+    if (!c.dataset.id) c.dataset.id = String(i);
+  });
 
-  })
+  cardCon.addEventListener("click", (e) => {
+    const btn = e.target.closest(".fav-btn");
+    if (!btn) return;
+
+    e.stopPropagation();
+    e.preventDefault();
+
+    const card = btn.closest(".card-box");
+    const empty = btn.querySelector(".icon-heart-empty");
+    const full = btn.querySelector(".icon-heart");
+
+    //  const nowFav = card.dataset.fav !== '1';
+    //   card.dataset.fav = nowFav ? '1' : '0'
+    //   btn.setAttribute('aria-pressed', nowFav ? 'true' : 'false');
+
+    let nowFav;
+    if (card.dataset.fav !== "1") {
+      nowFav = true; // قبلاً علاقه‌مندی نبود → حالا بکنیمش علاقه‌مندی
+    } else {
+      nowFav = false; // قبلاً علاقه‌مندی بود → حالا برداریمش
+    }
+
+    if (nowFav) {
+      card.dataset.fav = "1";
+      btn.setAttribute("aria-pressed", "true");
+    } else {
+      card.dataset.fav = "0";
+      btn.setAttribute("aria-pressed", "false");
+    }
+
+    //  button
+    if (nowFav) {
+      empty?.classList.add("hidden");
+      full?.classList.remove("hidden");
+    } else {
+      full?.classList.add("hidden");
+      empty?.classList.remove("hidden");
+    }
+  });
+
+  // navbar
+  navAll?.addEventListener("click", () => {
+    allCards.forEach((c) => {
+      c.classList.remove("hidden");
+    });
+  });
+
+  navFav?.addEventListener("click", () => {
+    allCards.forEach((c) => {
+      const isFav = c.dataset.fav === "1";
+      c.classList.toggle("hidden", !isFav);
+    });
+  });
+
+  // volume
+  const volumeControl = document.querySelector("#volumeControl");
+
+  volumeControl.addEventListener("input", () => {
+    audio.volume = volumeControl.value;
+  });
+
+  // list
+  const list = document.getElementById("list");
+  const grid = document.getElementById("grid");
+
+  list.addEventListener("click", () => {
+    const card = document.querySelectorAll(".card-box");
+
+    card.forEach((c) => {
+      if (c.classList.contains("card-box")) {
+        c.classList.remove("card-box");
+        c.classList.add("card-box-list");
+      } else {
+        c.classList.remove("card-box-list");
+        c.classList.add("card-box");
+      }
+    });
+  });
+
+  grid.addEventListener("click", () => {
+    const card = document.querySelectorAll(".card-box-list");
+ 
+    card.forEach((c) => {
+     if(c.classList.contains("card-box-list")){
+       c.classList.remove("card-box-list");
+       c.classList.add("card-box");
+     } else{
+       c.classList.remove("card-box");
+       c.classList.add("card-box-list");
+     }
+    });
+  });
 });
 // get data-
