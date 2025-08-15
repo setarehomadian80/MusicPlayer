@@ -13,7 +13,7 @@ A simple interactive **Music Player** built using HTML, CSS, and JavaScript.
 
 ![Music Player Screenshot](image/Sc.png)
 
-Live demo: [Music Player Demo](https://yourusername.github.io/your-repo-name/)
+Live demo: [Music Player Demo](https://setarehomadian80.github.io/MusicPlayer/)
 
 ## Screenshot
 
