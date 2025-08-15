@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
     const i = cards.indexOf(currentCard);
+    // درصد باعث میشود لیست دایره ای شود و برود به اول لیست
     const nextIndex = (i + 1) % cards.length;
     const nextCard = cards[nextIndex];
 
@@ -205,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // دکمه قبل و بعد
 
-
+/////////////////////////////////
   btnPrev?.addEventListener('click', () => {
   if (!cards.length) return;
 
