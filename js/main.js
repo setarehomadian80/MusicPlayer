@@ -75,6 +75,7 @@ ThemeBtn.addEventListener("click", () => {
       );
     });
   }
+  click++
 });
 
 // change theme *
@@ -302,6 +303,9 @@ document.addEventListener("DOMContentLoaded", () => {
   navAll?.addEventListener("click", () => {
     allCards.forEach((c) => {
       c.classList.remove("hidden");
+      cardCon.style.minHeight = '100vh' 
+      const hTitle = document.getElementById('h-title')
+      hTitle.innerText = "All Music"
     });
   });
 
@@ -309,6 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
     allCards.forEach((c) => {
       const isFav = c.dataset.fav === "1";
       c.classList.toggle("hidden", !isFav);
+      const hTitle = document.getElementById('h-title')
+      hTitle.innerText = "Fav Music"
     });
   });
 
@@ -350,5 +356,6 @@ document.addEventListener("DOMContentLoaded", () => {
      }
     });
   });
+  
 });
 // get data-
