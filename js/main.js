@@ -35,9 +35,9 @@ ThemeBtn.addEventListener("click", () => {
     searchBox.style.background = "var(--change-color-nav)";
     searchBox.classList.remove("ph-white");
     searchBox.classList.add("ph-black");
-    searchBox.style.color = ("black");
+    searchBox.style.color = "black";
     // search box
-   
+
     navLi.forEach((li) => {
       li.addEventListener("mouseenter", () =>
         li.querySelectorAll("span").forEach((s) => (s.style.color = "white"))
@@ -56,7 +56,7 @@ ThemeBtn.addEventListener("click", () => {
     searchBox.style.background = "var(--main-color-nav)";
     searchBox.classList.add("ph-white");
     searchBox.classList.remove("ph-black");
-    searchBox.style.color = ("white");
+    searchBox.style.color = "white";
     // search box
 
     // mainSec
@@ -75,65 +75,175 @@ ThemeBtn.addEventListener("click", () => {
       );
     });
   }
-  click++;
 });
 
 // change theme *
-// get data- 
+// get data-
 
-document.addEventListener('DOMContentLoaded' , ()=>{  
+document.addEventListener("DOMContentLoaded", () => {
+  const nameEl = document.getElementById("music-name");
+  const artistEl = document.getElementById("artist-name");
+  const coverEl = document.getElementById("player-cover");
+  ///////////////////
+  const btnPrev = document.querySelector(".prev");
+  const btnNext = document.querySelector(".next");
+  const btnPlay = document.querySelector("#player .play");
+  const icoPlay = document.getElementById("ico-play"); // اگر idهای قدیمی‌ت رو نگه داشتی، از querySelector('#-play') استفاده کن
+  const icoPause = document.getElementById("ico-pause");
+  const cards = Array.from(document.querySelectorAll(".card-box[data-src]"));
 
-  const nameEl = document.getElementById('music-name')
-  const artistEl = document.getElementById('artist-name')
-  const coverEl = document.getElementById('player-cover')
+  function showPlayIcon() {
+    icoPlay?.classList.remove("hidden");
+    icoPause?.classList.add("hidden");
+  }
 
-  // پلیر صوتی 
+  function showPauseIcon() {
+    // نمایش آیکن Pause، مخفی کردن Play
+    icoPause?.classList.remove("hidden");
+    icoPlay?.classList.add("hidden");
+  }
+
+  // پلیر صوتی
   const audio = new Audio();
-  // برای داشتن مدت رمان آهنگ 
-  audio.preload = 'metadata'
-  // پلیر صوتی 
+  // برای داشتن مدت رمان آهنگ
+  audio.preload = "metadata";
+  // پلیر صوتی
+
+  let currentCard = null;
+
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".card-box[data-src]");
+    if (!card) return;
+
+    const { src, title, artist, cover } = card.dataset;
+    if (!src) return;
+
+    if (currentCard === card && !audio.paused) {
+      audio.pause();
+      card.classList.remove("is-playing");
+      showPlayIcon();
+      return;
+    }
+
+    // کارت فعال را هایلاین کن
+    currentCard?.classList.remove("is-playing");
+    card.classList.add("is-playing");
+    currentCard = card;
+
+    // add data to player
+    nameEl.textContent = title;
+    artistEl.textContent = artist;
+    if (cover && coverEl) coverEl.src = cover;
+
+    // add data to player
+
+    audio.src = src;
+    audio.play().catch(console.warn);
+    showPauseIcon();
+  });
+
+  audio.addEventListener("ended", () => {
+    // btnNext?.click(); 
+    currentCard?.classList.remove("is-playing");
+    currentCard = null;
+  });
+  // دکمه برای پخش و استاپ آهنگ
+
+  btnPlay?.addEventListener("click", () => {
+    if (!currentCard) return; // ساده: بدون کارت انتخابی کاری نکن
+    if (audio.paused) {
+      audio.play().catch(console.warn);
+      showPauseIcon();
+    } else {
+      audio.pause();
+      showPlayIcon();
+    }
+  });
+  // دکمه برای پخش و استاپ آهنگ
+
+  // دکمه قبل و بعد
+  btnNext?.addEventListener("click", () => {
+    if (!cards.length) return;
+
+    if (!currentCard) {
+      const card = cards[0];
+
+      card.classList.add("is-playing");
+      currentCard = card;
+      const { title, artist, cover, src } = card.dataset;
+      nameEl.textContent = title || "—";
+      artistEl.textContent = artist || "—";
+      if (cover && coverEl) coverEl.src = cover;
+
+      // پخش
+      audio.src = src;
+      audio.play().catch(console.warn);
+      showPauseIcon();
+      return;
+    }
+
+    // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
+    const i = cards.indexOf(currentCard);
+    const nextIndex = (i + 1) % cards.length;
+    const nextCard = cards[nextIndex];
+
+    // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
+
+    // برداشتن هایلایت قبلی و گذاشتن روی جدید
+    currentCard.classList.remove("is-playing");
+    nextCard.classList.add("is-playing");
+    currentCard = nextCard;
+
+    const { title, artist, cover, src } = nextCard.dataset;
+    nameEl.textContent = title || "—";
+    artistEl.textContent = artist || "—";
+    if (cover && coverEl) coverEl.src = cover;
+
+    audio.src = src;
+    audio.play().catch(console.warn);
+    showPauseIcon();
+  });
+  // دکمه قبل و بعد
 
 
-  let currentCard = null
+  btnPrev?.addEventListener('click', () => {
+  if (!cards.length) return;
 
- document.addEventListener('click' , (e)=>{
-  const card = e.target.closest('.card-box[data-src]')
-  if(!card) return
+  // اگر هنوز چیزی انتخاب نشده، از آخر شروع کن
+  if (!currentCard) {
+    const card = cards[cards.length - 1];
 
+    card.classList.add('is-playing');
+    currentCard = card;
+    const { title, artist, cover, src } = card.dataset;
+    nameEl.textContent = title || '—';
+    artistEl.textContent = artist || '—';
+    if (cover && coverEl) coverEl.src = cover;
 
-
-  const {src, title, artist, cover} = card.dataset
-  if (!src) return
-
-
-  if(currentCard === card && !audio.paused){
-    audio.pause();
-    card.classList.remove('is-playing')
+    audio.src = src;
+    audio.play().catch(console.warn);
+    showPauseIcon();
     return;
   }
 
-  // کارت فعال را هایلاین کن
-  currentCard?.classList.remove('is-playing')
-  card.classList.add('is-playing')
-  currentCard = card 
+  // اگر کارت فعلی داریم: شماره‌اش را پیدا کن
+  const i = cards.indexOf(currentCard);
+  const prevIndex = (i - 1 + cards.length) % cards.length;
+  const prevCard = cards[prevIndex];
 
-// add data to player
-  nameEl.textContent = title
-  artistEl.textContent = artist
-  if( cover && coverEl) coverEl.src = cover
-  // add data to player
+  currentCard.classList.remove('is-playing');
+  prevCard.classList.add('is-playing');
+  currentCard = prevCard;
 
+  const { title, artist, cover, src } = prevCard.dataset;
+  nameEl.textContent = title || '—';
+  artistEl.textContent = artist || '—';
+  if (cover && coverEl) coverEl.src = cover;
 
-  audio.src = src
-  audio.play().catch(console.warn)
- });
+  audio.src = src;
+  audio.play().catch(console.warn);
+  showPauseIcon();
+});
 
-
-
-
- audio.addEventListener('ended' ,()=>{
-  currentCard?.classList.remove('is-playing')
-  currentCard = null
- })
-})
-// get data- 
+});
+// get data-
