@@ -13,15 +13,14 @@
 
 <body>
     <section>
-        <div class="2xl:container mx-auto">
             <div class="bg-neutral-600 w-full flex flex-wrap relative">
                 <!-- 2 main box -->
                 <!-- left nav -->
                 <div id="navBar"
-                    class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed top-0 ">
+                    class="w-[16%] h-[100vh] bg-[var(--main-color-nav)] *:text-white *:list-none fixed top-0 z-[99999] flex items-center">
                     <!--  Add nav ul li -->
                     <ul
-                        class="h-full w-60 *:h-15 py-10 px-5 *:mb-2 *:rounded-xl **:py-4 *:px-4 *:hover:bg-[var(--hover-button)] mt-10">
+                        class=" w-full *:h-15 py-10 px-5 *:mb-2*:rounded-xl **:py-4 *:px-4 *:hover:bg-[var(--hover-button)] ">
                         <li id="navAll">
                             <span>🎵</span>
                             <span>All Music</span>
@@ -60,7 +59,7 @@
                 </div>
                 <!-- left nav -->
                 <!-- right section -->
-                <div id="mainSec" class="bg-[var(--main-color-section)] w-[84%] min-h-[100vh] absolute right-0 top-0 z-[99999]">
+                <div id="mainSec" class="bg-[var(--main-color-section)] w-[84%] min-h-[100vh] absolute z-[99999] right-0">
                     <!-- search box -->
                     <div class="h-28 px-10 flex flex-wrap justify-between items-center">
                         <!-- search input-->
@@ -405,19 +404,19 @@
                         <!-- music card container -->
                     </div>
                     <!-- card container -->
-                    <!-- player -->
-                    <div class=" fixed z-[99999] w-[84%] h-28 bottom-0 p-2">
+                      <!-- player -->
+                    <div class=" fixed h-28 bottom-0 p-2 w-[84%]">
                         <div id="player"
-                            class="h-full left-0 top-0
-                          bg-black/40 backdrop-blur-md text-white flex flex-wrap justify-between items-center">
+                            class="h-full
+                          bg-black/40 backdrop-blur-md text-white flex flex-wrap justify-between *:flex *:justify-center items-center">
                             <div class="w-1/3 h-full object-cover flex flex-wrap items-center gap-5 p-2">
-                                <img id="player-cover" class="spin h-full w-20 rounded-[50%]" src="" alt="">
+                                <img id="player-cover" class="spin h-full w-20 rounded-[50%] border-1 border-white" src="" alt="">
                                 <div class="flex flex-col gap-2">
                                     <span id="music-name" class="text-2xl font-bold"></span>
                                     <span id="artist-name"></span>
                                 </div>
                             </div>
-                            <div class="w-1/3 *:cursor-pointer *:p-2 pl-20">
+                            <div class="w-1/3 *:cursor-pointer *:p-2">
                                 <button class="ctrl prev" aria-label="Previous"><i class="icon-rewind"></i></button>
 
                                 <button class="ctrl play" aria-label="Play/Pause">
@@ -427,17 +426,17 @@
 
                                 <button class="ctrl next" aria-label="Next"><i class="icon-fast-fw"></i></button>
                             </div>
-                            <div class="w-1/3 pl-20">
+                            <div class="w-1/3">
                                 <input type="range" class="w-64" id="volumeControl" min="0" max="1" step="0.01" value="1">
                             </div>
                         </div>
                     </div>
                     <!-- player -->
                 </div>
+                
                 <!-- right section -->
                 <!-- 2 main box -->
             </div>
-        </div>
     </section>
 </body>
 <script src="js/main.js"></script>
